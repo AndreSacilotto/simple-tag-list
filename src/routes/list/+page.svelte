@@ -92,11 +92,11 @@
           <div class="w-full flex gap-1 mb-1">
             <input
               type="text"
-              class="input flex-1"
+              class="input input-sm flex-1"
               bind:value={taggable.content}
             />
             <button
-              class="btn btn-md"
+              class="btn btn-sm"
               onclick={() => taggableList.remove(taggable)}
             >
               <DeleteSvg></DeleteSvg>

@@ -6,11 +6,15 @@
   import DeleteSvg from "$lib/icons/delete.svg.svelte";
 
   import tagList, { TagList, type TagItem } from "$lib/store/tags.svelte";
+  import taggableList from "$lib/store/taggables.svelte";
+  import { arrayRemoveOnce } from "$lib/utils/collection";
 
   let open = $state(false);
 
   function handleSort(dir: number) {
-    tagList.items.sort((a, b) => dir * a.name.localeCompare(b.name));
+    const sortFn = (a: TagItem, b: TagItem) => dir * a.name.localeCompare(b.name)
+    tagList.items.sort(sortFn);
+    taggableList.items.forEach(x => x.tags.sort(sortFn))
   }
 
   function handleAddItem() {
@@ -20,6 +24,11 @@
       description: "",
       // value: 0,
     });
+  }
+
+  function handleRemoveItem(tag: TagItem) {
+    tagList.remove(tag)
+    taggableList.items.forEach(x => arrayRemoveOnce(x.tags, tag))
   }
 
   let currentTag = $state(TagList.newItem());
@@ -58,8 +67,8 @@
           class="flex flex-row flex-wrap justify-between items-center gap-1 px-4 py-2 rounded-2xl bg-base-100 border border-base-300"
         >
           <div class="w-full flex gap-1">
-            <input type="text" class="input flex-1" bind:value={tag.name} />
-            <button class="btn btn-md" onclick={() => tagList.remove(tag)}>
+            <input type="text" class="input input-sm flex-1" bind:value={tag.name} />
+            <button class="btn btn-sm" onclick={() => handleRemoveItem(tag)}>
               <DeleteSvg></DeleteSvg>
             </button>
           </div>
@@ -76,7 +85,7 @@
           class="input p-0 border-none h-10 flex-1 cursor-pointer dark:bg-neutral-900 dark:border-neutral-700"
           bind:value={tag.color}
           />
-          <button class="btn btn-md" onclick={() => handleDescriptionModal(tag)}
+          <button class="btn btn-sm" onclick={() => handleDescriptionModal(tag)}
             >Description</button
           >
 

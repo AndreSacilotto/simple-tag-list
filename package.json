@@ -2,7 +2,7 @@
   "name": "simple-tag-list",
   "version": "0.1.0",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "BSL-1.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
