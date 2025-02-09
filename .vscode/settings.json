@@ -1,0 +1,19 @@
+{
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-workflow.json": "file:///d%3A/Programming/JS/list-tags/.github/deploy.yaml"
+	},
+	// "css.customData": [ ".vscode/tailwind.json" ],
+	"scss.lint.unknownAtRules": "ignore",
+	"files.associations": {
+		"*.scss": "tailwindcss",
+		"*.css": "tailwindcss"
+	},
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [ "javascript", "typescript", "svelte", "html" ],
+	"editor.indentSize": 2,
+	"editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "cSpell.words": [
+    "daisyui"
+  ],
+}

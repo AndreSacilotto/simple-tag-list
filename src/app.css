@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@import './styles/reset.css';
+@import './styles/scrollbar.css';
+@import './styles/util.css';
+
+body {
+  height: 100svh;
+}
+
+input[type="number"].numberless::-webkit-inner-spin-button,
+input[type="number"].numberless::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

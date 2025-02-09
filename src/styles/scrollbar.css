@@ -1,0 +1,19 @@
+::-webkit-scrollbar {
+  width: 0.55rem;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-200;
+}
+
+::-webkit-scrollbar-track:hover, ::-webkit-scrollbar-track:active {
+  @apply bg-zinc-300;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-400 rounded-sm;
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  @apply bg-zinc-500;
+}
